@@ -41,9 +41,18 @@ Rules
 
 "Back vowel harmony for archiphoneme {A}"
 %{A%}:а <=> [ ArchiBack: | BackVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ] | :BackVow ]+ _ ; 
+       except
+            [ н | л ] ь: %>: ( :0) _ ;
 
 !% п а л ь т о > {N} {A}
 !% п а л ь т о 0  н   а
+
+"Front vowel harmony for archiphoneme {A}"
+%{A%}:е <=> [ ArchiFront: | FrontVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ] | :FrontVow ]+ _ ; 
+            [ н | л ] ь: %>: ( :0) _ ;
+
+!% и ю л ь > {N} {A}
+!% и ю л 0 0  0   е
 
 "Back vowel harmony for archiphoneme {Ă}"
 %{Ă%}:ӑ <=> [ ArchiBack: | BackVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ] | :BackVow ]+ _ ;
@@ -121,7 +130,7 @@ Rules
 !% п а л ь т о 0 с е  н  0  ч   е  н 
 
 "Realisation of {N} after vowel"
-%{N%}:н <=>                     :Vow %>: _ ;
+%{N%}:н <=>                     :Vow ( :0) %>: _ ; 
                            е %{м%}:0 %>: _ ; 
 !       [ %{ă%}: | %{Ă%}: ] [ м | р ] %>: _  ; 
                           Cns %{ъ%}: %>: _ ;
@@ -133,6 +142,9 @@ Rules
 !% п а л ь т о > {у} {н} > {N} {A}
 !% п а л ь т 0 0  у   0  0  н   а 
 
+!% м е т а л л > {N} {A}
+!% м е т а л 0 0  0   а
+
 "Realisation of {N} after possessive"
 %{N%}:0 <=> [ %{ă%}: | %{Ă%}: ] р %>: _ %{A%}: ;
                          %{ă%}: м %>: _ %{A%}: ;
@@ -141,6 +153,14 @@ Rules
 !% п а л ь т о > {ă} м {Ă} р > {N} {A}
 !% п а л ь т о 0  0  м  ӑ  р 0  0   а	
 
+"Realisation of {N} after consonant"
+%{N%}:0 <=> Cns ([ ь: | Cns:0 ]) %>: _ ;
+
+!% к л а с с > {N} {A}
+!% к л а с 0 0  0   а
+           
+!% с к л а д > {N} {A}
+!% с к л а д 0  0   а
 
 !-	пальто<n><px2pl><dat>	пальто>{ă}р>{N}{A}	пальтӑра	пальто<n><px2pl><dat>+?
 
@@ -187,7 +207,7 @@ Vx:0 <=> _ ( :0) %>: [ %{у%}: | %{ă%}: р | %{и%}: ]  ;
 !% п а л ь т о 0  0  м
 
 "Consonant doubling reduction in stem"
-Cx:0 <=> Cx _ %>: [ :Cns | :Vow ] ;
+Cx:0 <=> Cx _ %>: ( :0) [ :Cns | :Vow ] ;
     where Cx in ( с л ) ;
 
 !% к л а с с > {ă} р > {Ă} н
@@ -220,11 +240,15 @@ Vx:Vy <=> %{й%}: _ %>: \%{и%}: ;
           
 "No consonant gemination in certain forms"
 %{ː%}:0 <=> _ %>: [ ш | п | %{T%}: | с ] ; 
-            _ .#. ; 
+            _ Vow %>: [ ш | п | %{T%}: | с ] ; 
+            _ Vow .#. ; 
 
 !% ҫ ы н {ː} > {и} {н} > с е {м} > ш {Ă} н
 !% ҫ ы н  н  0  и   0  0 с е  м  0 ш  ӗ  н 
 
+
+!% п у л {ː} ӑ > ш {Ă} н
+!% п у л  0  ӑ 0 ш  ӑ  н
 
 "Palatalisation of т before possessive"
 Cx:ч <=>     _ ( [ %{ъ%}: | ь: ] ) %>: %{и%}: %{н%}:  ;
@@ -315,8 +339,12 @@ Vx:Vy => _ %{в%}:в %>: %{и%}: ;
 "Surface realisation of jotisation as й"
 %{й%}:й <=> Vow _ ( :0) %>: %{и%}: ; 
 
- "Surface realisation of jotisation as й"
+"Surface realisation of jotisation as й"
 %{й%}:й /<= н  _ ; 
+
+"Does not surface in nominative"
+%{й%}:0 <=> _ Vow .#.  ;
+         Vow _ .#.  ; 
             
 !% с т и х и {й} я > п {A}
 !% с т и х и  й  ӑ 0 п  а
