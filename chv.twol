@@ -12,8 +12,11 @@ Alphabet
  %{й%}:й %{й%}:0 %{й%}:ь 
  %{у%}:ӳ %{у%}:у
  %{ː%}:0 %{ː%}:н
+ %{в%}:в %{в%}:0
  %{ъ%}:0 
  %{ь%}:0
+
+ %-
 
  %>:0 
 ;
@@ -26,11 +29,11 @@ ArchiFront = %{ь%} ;
 
 BackVow = ӑ а ы о у я ё ю ;
 
-FrontVow = ӗ э и ӳ ; 
+FrontVow = ӗ э и ӳ е ; 
 
-Vow = ӑ а ы о у я ё ю ӗ э и ӳ ;
+Vow = ӑ а ы о у я ё ю ӗ э и ӳ е ;
 
-ArchiCns = %{м%} %{н%} %{T%} %{й%} %{ː%} %{N%} ;
+ArchiCns = %{м%} %{н%} %{T%} %{й%} %{ː%} %{N%} %{в%} ;
 
 Cns = б в г д ж з к л м н п р с ҫ т ф х ц ч ш щ й ь ъ ; 
 
@@ -52,6 +55,11 @@ Rules
 
 "Back vowel harmony for archiphoneme {у}"
 %{у%}:у <=> [ ArchiBack: | BackVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ]  | :BackVow ]+ _ ;
+      except
+           ArchiFront: %>: _ ;
+
+"Front vowel harmony for archiphoneme {у}"
+%{у%}:ӳ <= ArchiFront: %>: _ ;
 
 !% п а л ь т о > {ă} р > ш {Ă} н
 !% п а л ь т 0 0  ӑ  р 0 ш  ӑ  н
@@ -60,6 +68,7 @@ Rules
 %{Ă%}:0 <=> %{м%}: %>: _ н ; 
             :ӑ %>: _ ; 
             о %>: _ н ;
+ %{у%}:у %{н%}: %>: _ н ; 
             :Vow [ :0 ]* %>: _ н ;
 
 !% п а л ь т о > {Ă} н
@@ -85,7 +94,7 @@ Rules
 %{T%}:р  =>                      %{ː%}: %>: _ ; 
             %{ː%}: %>: [ :Vow | :Cns ]+ %>: _   ;
                              Cns %{ъ%}: %>: _ ; 
-                                    Vow %>: _ ;
+                                    Vow ( :0) %>: _ ;
                                [ Cns - [ л | р | н ] ] %>: _ ;
 
 !% ҫ ы н {ː} > {Ă} н
@@ -153,7 +162,7 @@ Rules
 !% п р о с п е к т  0  0  ӑ  м  ӑ  р 0  0   а 
 
 "Stem vowel deletion in possessives"
-Vx:0 <=> _ %>: [ %{у%}: | %{ă%}: р | %{и%}: ]  ;
+Vx:0 <=> _ ( :0) %>: [ %{у%}: | %{ă%}: р | %{и%}: ]  ;
     where Vx in ( о ) ; 
 
 ! {ă} replaces stem -о before р in px2sg
@@ -162,7 +171,7 @@ Vx:0 <=> _ %>: [ %{у%}: | %{ă%}: р | %{и%}: ]  ;
 "Back vowel harmony for archiphoneme {ă}"
 %{ă%}:ӑ <=> [ ArchiBack: | BackVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ]  | :BackVow ]+ _ ;
       except
-              о %>: _ м ;
+              о ( :0) %>: _ м ;
 
 !% ҫ ы н {ː} > {ă} м {Ă} р
 !% ҫ ы н  н  0  ӑ  м  ӑ  р 
@@ -171,7 +180,7 @@ Vx:0 <=> _ %>: [ %{у%}: | %{ă%}: р | %{и%}: ]  ;
 !% ҫ ы н  н  0  ӑ  м  
 
 "Realisation of {ă} after о"
-%{ă%}:0 <=> о %>: _ м ; 
+%{ă%}:0 <=> о ( :0) %>: _ м ; 
 
 
 !% п а л ь т о > {ă} м
@@ -179,13 +188,21 @@ Vx:0 <=> _ %>: [ %{у%}: | %{ă%}: р | %{и%}: ]  ;
 
 "Consonant doubling reduction in stem"
 Cx:0 <=> Cx _ %>: [ :Cns | :Vow ] ;
-    where Cx in ( с ) ;
+    where Cx in ( с л ) ;
 
 !% к л а с с > {ă} р > {Ă} н
 !% к л а с 0 0  ӑ  р 0  ӑ  н 
 
+"Stem vowel assimilation in possessive"
+Vx:0 <=> _ ( :0) %>: %{и%}: ; 
+      where Vx in ( ӑ ӗ я а е  ) ; 
+
+!% л и т е р а т у р а > {и} {н}
+!% л и т е р а т у р 0 0  и   0 
+
+
 "Vowel reduction before suffix"
-Vx:Vy <=> %{й%}: _ %>:  ; 
+Vx:Vy <=> %{й%}: _ %>: \%{и%}: ; 
       where Vx in ( я ) 
             Vy in ( ӑ ) 
       matched ;
@@ -193,11 +210,13 @@ Vx:Vy <=> %{й%}: _ %>:  ;
 !% н я н  {й} я > п {A}	
 !% н я н   ь   ӑ 0 п  а
 
-"Surface realisation of jotisation as ь"
-%{й%}:ь <=> _  я:ӑ %>: ; 
 
 "Consonant gemination in some forms"
-%{ː%}:Cx <=> Cx _ %>: [ %{ă%}: | %{Ă%}: | %{и%}: ] ;
+%{ː%}:Cx <=> Cx _ ( :0) %>: [ %{ă%}: | %{Ă%}: | %{и%}: ] ;
+       where Cx in ( к л т н п в й  ) ; 
+
+!% ч и к {ː} ӗ > {и} {н}
+!% ч и к  к  0 0  и   0 
           
 "No consonant gemination in certain forms"
 %{ː%}:0 <=> _ %>: [ ш | п | %{T%}: | с ] ; 
@@ -206,21 +225,12 @@ Vx:Vy <=> %{й%}: _ %>:  ;
 !% ҫ ы н {ː} > {и} {н} > с е {м} > ш {Ă} н
 !% ҫ ы н  н  0  и   0  0 с е  м  0 ш  ӗ  н 
 
-"Realisation of {и}"
-%{и%}:ӗ <=> т:ч ( %{ъ%}: ) %>: _ %{н%}: ; 
-
-!% п р о с п е к т {ъ} > {и} {н}
-!% п р о с п е к ч  0  0  ӗ   0
-
-"Realisation of {и} word final"
-%{и%}:и <=> %>: _ %{н%}: ; 
-        except
-            т:ч ( %{ъ%}: ) %>: _ %{н%}: ;
 
 "Palatalisation of т before possessive"
-т:ч <=>     _ ( %{ъ%}: ) %>: %{и%}: %{н%}: %>: ;
+Cx:ч <=>     _ ( [ %{ъ%}: | ь: ] ) %>: %{и%}: %{н%}:  ;
      except
             _ ( %{ъ%}: ) %>: %{и%}: %{н%}: %>: %{N%}: ; 
+     where Cx in ( т  д  ) ;
 
 !% п р о с п е к т {ъ} > {и} {н} > ш {Ă} н
 !% п р о с п е к ч  0  0  ӗ   0  0 ш  ӗ  н 
@@ -231,5 +241,87 @@ Vx:Vy <=> %{й%}: _ %>:  ;
 
 
 !-	проспект<n><px3sp><dat>	проспект{ъ}>{и}{н}>{N}{A}	проспектне	проспект<n><px3sp><dat>+?
+
+
+!% п у р т {ː} ӑ > {и} {н}
+!% п у р т  т  0 0  и   0 
+
+
+"Realisation of {в}"
+%{в%}:в <=> _ %>: %{и%}: ; 
+
+!"Reduction of underlying rounded vowel before {в}"
+!Vx:Vy => _ %{в%}:в %>: %{и%}: ;
+!     where Vx in ( о у ӳ )
+!           Vy in ( ӑ ӑ ӗ ) 
+!     matched ; 
+
+!% п ӳ {в} > {и} {н}
+!% п ӗ  в  0  ӗ   0
+
+"No reduction of underlying rounded high vowel before {в}"
+Vx:Vy => _ %{в%}:в %>: %{и%}: ;
+     where Vx in ( у ӳ )
+           Vy in ( ӑ ӗ ) 
+     matched ; 
+
+
+"Realisation of {и}"
+%{и%}:ӗ <=>                                            т:ч ( %{ъ%}: ) %>: _ %{н%}: ; 
+        [ ш | к | р | п | м | л | й | %{й%}: | :ч | ҫ | ь: | н | с | :в ] (Cns:0) %>: _ ; 
+      except
+          т ь:й е: %>: _ ;        ! платье → платйи
+
+!% п р о с п е к т {ъ} > {и} {н}
+!% п р о с п е к ч  0  0  ӗ   0
+
+!% х ӗ в > {и} {н}
+!% х ӗ в 0  ӗ   0
+
+!% р а д и о {в} > {и} {н}
+!% р а д и о  в  0  ӗ   0 
+
+"Realisation of {и} word final"
+%{и%}:и <=>        %>: _ %{н%}: ; 
+          т ь:й е: %>: _ ;        ! платье → платйи
+        except
+            т:ч ( %{ъ%}: ) %>: _ %{н%}: ;
+       [ [ ш | к | р | п | м | л | й | %{й%}: | :ч | ҫ | ь: | н | с | :в ] - ь:й ] (Cns:0) %>: _ ; 
+
+!% т и м ӗ р ҫ ӗ > {и} {н}
+!% т и м ӗ р ҫ 0 0  и   0
+
+"Soft sign deletion before suffix"
+ь:0 <=>     _ %>: ; 
+     except 
+          т _ ( :0) %>: %{и%}:и   ;
+
+"Soft sign surfaces as i kratka" 
+ь:й <=> [ т | с ] _ ( :0) %>: %{и%}:и ;     ! FIXME: Check consonants, are some "soft" by default ?
+
+!% п л а т ь е > {и} {н}
+!% п л а т й 0 0  и   0 
+
+!% к ӗ с ь е > {и} {н}
+!% к ӗ с й 0 0  и   0 
+
+"Ban soft sign after vowel "
+%{й%}:ь /<=  Vow _   ; 
+
+"Surface realisation of jotisation as ь"
+%{й%}:ь <=   _  я:ӑ %>: ; 
+            н _ (Vow: ) %>:  ;
+
+"Surface realisation of jotisation as й"
+%{й%}:й <=> Vow _ ( :0) %>: %{и%}: ; 
+
+ "Surface realisation of jotisation as й"
+%{й%}:й /<= н  _ ; 
+            
+!% с т и х и {й} я > п {A}
+!% с т и х и  й  ӑ 0 п  а
+
+!% и н ф о р м а ц и {й} > {и} {н}
+!% и н ф о р м а ц и  й  0  ӗ   0 
 
 

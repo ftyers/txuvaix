@@ -9,14 +9,14 @@ for j in `python3 test/extract-phon.py < chv.twol | sed 's/ /_/g'`; do
 	echo $j | sed 's/_/ /g' | hfst-pair-test chv.twol.hfst
 done
 
-cat test/chv.txt  | cut -f2 -d':' | hfst-proc chv.morf.hfst > test/chv.tst
+cat test/chv.txt  | cut -f2 -d':' | hfst-proc chv.mor.hfstol > test/chv.tst
 for i in `cat test/chv.txt  | cut -f2 -d':'`; do res=`cat test/chv.txt | grep ":$i$" | cut -f1 -d':' | tr '\n' '/' | sed 's/\/$//g'`; echo "^$i/$res$"; done > test/chv.ref
 #python3 test/evaluate-morph.py test/chv.tst test/chv.ref
 
 for i in `hfst-fst2strings chv.lexc.hfst | grep -v '<np' | grep "$str"`; do 
 	x=`echo $i | cut -f1 -d':'`; 
 	k=`echo $i | cut -f2 -d':'`; 
-	y=`echo $x | hfst-lookup -qp chv.gen.hfst | cut -f2 | grep -v '^$' | tr '\n' '|' | sed 's/|$//g'`
+	y=`echo $x | hfst-optimised-lookup -qp chv.gen.hfstol | cut -f2 | grep -v '^$' | tr '\n' '|' | sed 's/|$//g'`
 	z=`cat test/chv.txt | grep "^$x:" | cut -f2 -d':' | tr '\n' '|' | sed 's/|$//g'`;
 	r="-"
 	if [[ $y = $z ]]; then
@@ -28,4 +28,7 @@ for i in `hfst-fst2strings chv.lexc.hfst | grep -v '<np' | grep "$str"`; do
 done
 echo "$win/$total"
 
-python3 test/evaluate-morph.py test/chv.tst test/chv.ref > test/chv.res
+d=`date`
+echo -ne "$d\t" >> test/history.log
+python3 test/evaluate-morph.py test/chv.tst test/chv.ref > test/chv.res 2>> test/history.log
+tail -4 test/history.log >/dev/stderr
