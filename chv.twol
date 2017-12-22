@@ -31,6 +31,8 @@ BackVow = ӑ а ы о у я ё ю ;
 
 FrontVow = ӗ э и ӳ е ; 
 
+ForceHarmony = %{ъ%} %{ь%} ;
+
 Vow = ӑ а ы о у я ё ю ӗ э и ӳ е ;
 
 ArchiCns = %{м%} %{н%} %{T%} %{й%} %{ː%} %{N%} %{в%} ;
@@ -50,6 +52,8 @@ Rules
 "Front vowel harmony for archiphoneme {A}"
 %{A%}:е <=> [ ArchiFront: | FrontVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ] | :FrontVow ]+ _ ; 
             [ н | л ] ь: %>: ( :0) _ ;
+        except 
+            [ ArchiBack: | BackVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ] | :BackVow ]+ _ ;
 
 !% и ю л ь > {N} {A}
 !% и ю л 0 0  0   е
@@ -57,9 +61,12 @@ Rules
 "Back vowel harmony for archiphoneme {Ă}"
 %{Ă%}:ӑ <=> [ ArchiBack: | BackVow: ] [ ArchiCns: | Cns: | %>: | [ :0 - %{и%}: ] | :BackVow ]+ _ ;
       except
-            :ӑ %>: _ ;
-             о %>: _ н ;
- %{у%}:у %{н%}: %>: _ н ; 
+            %{м%}: %>: _ н ; 
+                :ӑ %>: _ ; 
+                 о %>: _ н ;
+    %{у%}:у %{н%}: %>: _ н ; 
+      :Vow [ :0 ]* %>: _ н ;
+
 
 
 "Back vowel harmony for archiphoneme {у}"
@@ -75,10 +82,10 @@ Rules
 
 "Non surface {Ă} in plural genitive"
 %{Ă%}:0 <=> %{м%}: %>: _ н ; 
-            :ӑ %>: _ ; 
-            о %>: _ н ;
- %{у%}:у %{н%}: %>: _ н ; 
-            :Vow [ :0 ]* %>: _ н ;
+                :ӑ %>: _ ; 
+                 о %>: _ н ;
+    %{у%}:у %{н%}: %>: _ н ; 
+      :Vow [ :0 ]* %>: _ н ;
 
 !% п а л ь т о > {Ă} н
 !% п а л ь т о 0  0  н
@@ -133,7 +140,7 @@ Rules
 %{N%}:н <=>                     :Vow ( :0) %>: _ ; 
                            е %{м%}:0 %>: _ ; 
 !       [ %{ă%}: | %{Ă%}: ] [ м | р ] %>: _  ; 
-                          Cns %{ъ%}: %>: _ ;
+!                          Cns %{ъ%}: %>: _ ;
                       [ %{и%}:и | %{у%}: ] %{н%}:0 %>: _ ; 
 
 !% п а л ь т о > {и} {н} > {N} {A}
@@ -153,8 +160,11 @@ Rules
 !% п а л ь т о > {ă} м {Ă} р > {N} {A}
 !% п а л ь т о 0  0  м  ӑ  р 0  0   а	
 
+!% п р о с п е к т {ъ} > {N} {A}
+!% п р о с п е к т  0  0  0   а
+
 "Realisation of {N} after consonant"
-%{N%}:0 <=> Cns ([ ь: | Cns:0 ]) %>: _ ;
+%{N%}:0 <=> Cns ([ ь: | Cns:0 | ForceHarmony: ]) %>: _ ;
 
 !% к л а с с > {N} {A}
 !% к л а с 0 0  0   а
