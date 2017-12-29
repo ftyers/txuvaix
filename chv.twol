@@ -150,7 +150,7 @@ Rules
         except
           [ UnderFront: | FrontVow: ] [ :Cns | [ :0 - ArchiBack: - UnderBack: ] ]* %>: [ :Cns | :0 ]*  _ ; 
                                    [ д | н | л ] ь: %>: [ :Cns | :0 ]*  _ ;
-                                                      :Vow [ :0 ]* %>: _ р ;
+                                                      :Vow [ :0 ]* %>: _  ;
 
 !@ ш о с с е:0 >:0 {Ĕ}:ӗ р
 
@@ -160,6 +160,8 @@ Rules
 %{U%}:ю <=> [ UnderBack: | BackVow ] [ :Cns | :0 ]* й:0 %>: [ :Cns | :0 ]*  _ ; 
             [ UnderBack: | BackVow ] [ :Cns | :0 ]* й: %>: _ ; 
                         [ ArchiBack: | UnderBack: ] й: %>: _ ; 
+        except
+                                                      :Vow [ :0 ]* %>: _  ;
 
 !@ а н н {ь}:0 >:0 {U}:ӳ {н}:0
 
@@ -178,6 +180,8 @@ Rules
 Vx:Vy <=> _ [ :0 - й: ]* %>: %{U%}:  ;
      except
          %{й%}: _ %{в%}: %>: %{U%}:  ;  
+                _ [ :0 ]* %>: %{Ĕ%}: р ;
+                _ %>: %{и%}: ;
       where Vx in ( а э и о я е ы ё %{е%} %{о%} %{а%} ) 
             Vy in ( у ӳ ӳ у ю ӳ у у   ӳ     у     у ) 
       matched ;
@@ -188,6 +192,8 @@ Vx:Vy <=> _ [ :0 - й: ]* %>: %{U%}:  ;
 
 "Vowel reduction before {Ĕ}"
 Vx:Vy <=> _ [ :0 ]* %>: %{Ĕ%}: р ;
+      except 
+          _ %>: %{и%}: ;
       where Vx in ( а э и о у я е ы ё ю  ) 
             Vy in ( ӑ ӗ ӗ ӑ ӑ ӑ ӗ ӑ ӑ ӑ  ) 
       matched ;
@@ -211,6 +217,7 @@ Vx:0 <=> :Vow [ :0 ]* %>: _  ;
           [ UnderFront: | FrontVow ] [ :Cns | [ :0 - ArchiBack: - UnderBack: ] ]* %>: [ :Cns | :0 ]*  _ ; 
                                                                  [ д | н | л ] ь: %>: [ :Cns | :0 ]*  _ ;
                                                                                       Vow [ :0 ]* %>: _ м ;
+                                                                                     :Vow [ :0 ]* %>: _  ;
 
 "Vowel deletion for {Ă} in genitive"
 %{Ă%}:0 <=> [ Vow | %{и%}: | %{U%}: ] [ :0 ]* %>: _ н ;
@@ -254,9 +261,7 @@ Vx:0 <=> _ %>: %{и%}: ; ! possessive
          _ %>: %{Ă%}: ; ! genitive
          _ %>: %{ă%}: ; ! poss. 1sg
          _ %>: %{Ĕ%}: ;  ! px2pl
-!         _ %>: %{U%}: ;  ! px2sg
       where Vx in ( %{а%} %{о%} %{е%} )  ;
-
 
 "Stem vowel reduction before suffix"
 Vx:Vy <=> _ %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat,loc,abl,ins,ter
@@ -282,6 +287,8 @@ Cx:0 <=> Cx _ ( :0)* %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat, loc, abl, i
       except
              .#. а ш _ %>: ;  ! Irregular form of атте
 !                 Cx  _ (ь: ) [ :0 ]* %>: %{и%}: ; ! palatalisation
+            _ %>: [ %{U%}:ю | %{A%}:я ] ;
+            _ [ :0 - %{ː%}: ]* %>: %{N%}: ; ! dative
       where Cx in Cns  ;
 
 !@ к л а с с:0 > {N}:0 {A}:а
@@ -289,19 +296,20 @@ Cx:0 <=> Cx _ ( :0)* %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat, loc, abl, i
 !@ м е т а л л:0 >:0 {и}:ӗ {н}:0 >:0 ш {Ă}:ӗ н
 
 "Loanwords do not take {в} before some suffixes"
-%{в%}:0 <=> _ %{☭%}: %>: [ %{N%}: | %{T%}: | р | с | ш ] ; 
+%{в%}:0 <=> _ %{☭%}: %>: [ %{N%}: | %{T%}: | р | с | ш | п ] ; 
             _ %{☭%}: %>: %{Ă%}: ; ! gen
             _ %{☭%}: %>: %{ă%}: ; ! px1sg
             _ %{☭%}: %>: %{Ĕ%}: ; ! px2pl
             _ %{☭%}: %>: %{U%}: ; ! px2sg
+            _ %{☭%}: .#. ; 
 
 !@ к и н о {в}:0 {☭}:0 >:0 {N}:н {A}:а
 
 "{в} doesn't surface before some suffixes"
 %{в%}:0 <=> _ %>: [ %{T%}: %{A%}: | р %{A%}: | ш %{Ă%}: ] ;  ! Locative, abl, ter
-            _ ( :0) %>: с ;  ! Plural
-            _ ( :0) %>: п ; ! ins
-            _ ( :0) .#. ; 
+            _ ([ :0 - %{☭%}: ]) %>: с ;  ! Plural
+            _ ([ :0 - %{☭%}: ]) %>: п ; ! ins
+            _ ([ :0 - %{☭%}: ]) .#. ; 
 
 !@ т у {в}:0 >:0 {T}:р {A}:а
 
@@ -351,9 +359,12 @@ Vx:Vy <=> _ %{в%}:в %>: [ %{и%}: %{н%}: | %{N%}: %{A%}: ] ;
                 _ :YotisedVow (%{в%}: ) %>: ; 
                 _ ( :YotisedVow) [ :0 ]* .#. ;
                 _ %>: %{Ă%}: н ; ! genitive
-                _ %>: ш ; ! ter
-       except
+                _ %>: ш  ; ! ter, ins
+                _ :YotisedVow [ :0 ]* %>:  ;
+       except 
                 _ %>: %{U%}:ӳ ; 
+
+!@ м е н {й}:0 ю {в}:0 {☭}:0 >:0 п {A}:а
 
 !@ ш ӑ ш и {й}:й >:0 {U}:ӳ {н}:0
 

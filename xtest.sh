@@ -8,7 +8,7 @@ for i in `cat test/chv.txt | grep "$tags"`; do
 	sur=`echo $i | cut -f2 -d':'`;
 	mtx=`echo $lex | hfst-lookup -qp chv.lexc.hfst | cut -f2 | grep -v '^$' | tr '\n' '|' | sed 's/|$//g'`;
 	
-	gen=`echo "$lex" | hfst-optimised-lookup -b 1 -qp chv.gen.hfstol  | cut -f2 | grep -v '^$' | tr '\n' '|' | sed 's/|$//g'`
+	gen=`echo "$lex" | hfst-optimised-lookup -b 0 -qp chv.gen.hfstol  | cut -f2 | grep -v '^$' | tr '\n' '|' | sed 's/|$//g'`
 	mor=`echo "$sur" | hfst-optimised-lookup -qp chv.mor.hfstol | cut -f2 | grep -v '^$' | tr '\n' '/' | sed 's/\/$//g'`;
 
 	rgn="-"
