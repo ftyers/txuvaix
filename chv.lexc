@@ -20,6 +20,7 @@ Multichar_Symbols
 %<ter%>              ! 
 
 %{Ă%}                ! 
+%{Ĕ%}                ! 
 %{A%}                !
 %{н%}                !
 %{й%}                !
@@ -28,7 +29,7 @@ Multichar_Symbols
 %{T%}                !
 %{N%}                !
 %{ă%}                !
-%{у%}                !
+%{U%}                !
 %{ː%}                !
 %{ъ%}                !
 %{ь%}                !
@@ -69,12 +70,11 @@ LEXICON PLURAL
 LEXICON POSS 
 
 PLURAL ;
-!%<px1sg%>:%>%{ă%}м        PLURAL ;
-%<px1sg%>:%>%{Ă%}м        PLURAL ;
-%<px2sg%>:%>%{у%}%{н%}    PLURAL ;
+%<px1sg%>:%>%{ă%}м        PLURAL ;
+%<px2sg%>:%>%{U%}%{н%}    PLURAL ;
 %<px3sp%>:%>%{и%}%{н%}    PLURAL ;
 %<px1pl%>:%>%{ă%}м%{Ă%}р  PLURAL ;
-%<px2pl%>:%>%{ă%}р        PLURAL ;
+%<px2pl%>:%>%{Ĕ%}р        PLURAL ;
 
 LEXICON SUBST 
 
@@ -92,7 +92,7 @@ LEXICON POSS-ANNE
 
 :нне                       PLURAL ;
 %<px1sg%>:нн%>ем           PLURAL ;
-%<px2sg%>:нн%{ь%}%>%{у%}%{н%}       PLURAL ;
+%<px2sg%>:нн%{ь%}%>%{U%}%{н%}       PLURAL ;
 %<px3sp%>:мӑш%>%{и%}%{н%}  PLURAL ;
 %<px1pl%>:нне%>м%{Ă%}р     PLURAL ;
 %<px2pl%>:нн%>ӗр           PLURAL ;
@@ -101,7 +101,7 @@ LEXICON POSS-ATTE
 
 :тте                       PLURAL ;
 %<px1sg%>:тт%>ем           PLURAL ;
-%<px2sg%>:ҫ%>%{у%}%{н%}       PLURAL ;
+%<px2sg%>:ҫ%>%{U%}%{н%}       PLURAL ;
 %<px3sp%>:шш%>%{и%}%{н%}  PLURAL ;
 %<px1pl%>:тте%>м%{Ă%}р     PLURAL ;
 %<px2pl%>:ҫ%>ӑр           PLURAL ;
@@ -110,7 +110,7 @@ LEXICON POSS-ATTEANNE
 
 :тте-анне                  PLURAL ;
 %<px1sg%>:тте-анн%>ем           PLURAL ;
-%<px2sg%>:ҫу-анн%{ь%}%>%{у%}%{н%}       PLURAL ;
+%<px2sg%>:ҫу-анн%{ь%}%>%{U%}%{н%}       PLURAL ;
 %<px3sp%>:шӗ-амӑш%>%{и%}%{н%}  PLURAL ;
 %<px1pl%>:тте-анне%>м%{Ă%}р     PLURAL ;
 %<px2pl%>:ҫӑр-анн%>ӗр           PLURAL ;
@@ -140,7 +140,7 @@ LEXICON Nouns
 
 власть:вла N-VLAÇ ; ! ""
 
-меню:меню%{в%}%{☭%} N ; ! ""
+меню:мен%{й%}ю%{в%}%{☭%} N ; ! ""
 пӳ:пӳ%{в%} N ; ! ""
 радио:радио%{в%}%{☭%} N ; ! ""
 ту:ту%{в%} N ; ! ""
