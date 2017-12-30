@@ -52,7 +52,7 @@ Cns = б в г д ж з к л м н п р с ҫ т ф х ц ч ш щ й ;
 Rules 
 
 "Dative {N} not realised after consonant"
-%{N%}:0 <=> [ й: | :Cns | %{й%}: ] ( :0)* %>: _ ;
+%{N%}:0 <=> [ й: | :Cns | %{й%}: ] [ :0 ]* %>: _ ;
 
 !@ и ю н ь:0 >:0 {N}:0 {A}:е
 
@@ -159,13 +159,16 @@ Rules
 "Back vowel harmony for yotised {U}"
 %{U%}:ю <=> [ UnderBack: | BackVow ] [ :Cns | :0 ]* й:0 %>: [ :Cns | :0 ]*  _ ; 
             [ UnderBack: | BackVow ] [ :Cns | :0 ]* й: %>: _ ; 
-                        [ ArchiBack: | UnderBack: ] й: %>: _ ; 
+                        [ ArchiBack: | UnderBack: | BackVow: ] й: %>: _ ; 
         except
-                                                      :Vow [ :0 ]* %>: _  ;
+                                                      :Vow [ :0 - й: ]* %>: _  ;
+                                               ArchiFront: [ :0 ]* %>: _  ;
 
 !@ а н н {ь}:0 >:0 {U}:ӳ {н}:0
 
 !@ а л л е {й}:0 я:ю >:0 {U}:0 {н}:0
+
+!@ г е р о й:0 >:0 {U}:ю {н}:0 >:0 с е {м}:м
 
 "Back vowel harmony for unyotised {U}"
 %{U%}:у <=> [ UnderBack: | BackVow ] [ :Cns | :0 ]* %>: [ :Cns | :0 ]*  _ ; 
@@ -175,6 +178,8 @@ Rules
                                    [ д | н | л ] ь: %>: [ :Cns | :0 ]*  _ ;
                                                 й: %>: [ :Cns | :0 ]*  _ ; 
                                                :Vow ( :0 )* %>: _  ;
+                                               ArchiFront: [ :0 ]* %>: _  ;
+!@ а н н {ь}:0 >:0 {U}:ӳ {н}:0
 
 "Vowel assimilation before {U}"
 Vx:Vy <=> _ [ :0 - й: ]* %>: %{U%}:  ;
@@ -283,23 +288,28 @@ Vx:Vy <=> _ %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat,loc,abl,ins,ter
 !@ с т е н а:а >:0 {N}:н {A}:а
 
 "Consonant shortening before suffix"
-Cx:0 <=> Cx _ ( :0)* %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat, loc, abl, ins, ter
+Cx:0 <=> Cx _ [ :0 ]* %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat, loc, abl, ins, ter, dat
          Cx _ %>: %{и%}:  ; ! Possessive
          Cx _ %>: с ; ! Plural
          Cx _ %>: %{Ă%}: н ; ! genitive
          Cx _ %>: %{ă%}:  ; ! possessive
          Cx _ %>: %{Ĕ%}:  ; ! possessive
          Cx _ %>: %{U%}:  ; ! possessive
+         Cx _ %>: н %{A%}:  ; ! optional dative
       except
              .#. а ш _ %>: ;  ! Irregular form of атте
 !                 Cx  _ (ь: ) [ :0 ]* %>: %{и%}: ; ! palatalisation
             _ %>: [ %{U%}:ю | %{A%}:я ] ;
-            _ [ :0 - %{ː%}: ]* %>: %{N%}: ; ! dative
+!            _ [ :0 - %{ː%}: ]* %>: %{N%}: ; ! dative
       where Cx in Cns  ;
 
-!@ к л а с с:0 > {N}:0 {A}:а
+!@ к л а с с:0 >:0 {N}:0 {A}:а
+
+!@ к л а с с:0 >:0 н {A}:а
 
 !@ м е т а л л:0 >:0 {и}:ӗ {н}:0 >:0 ш {Ă}:ӗ н
+
+!@ м е т а л л:0 >:0 {N}:0 {A}:а
 
 "Loanwords do not take {в} before some suffixes"
 %{в%}:0 <=> _ %{☭%}: %>: [ %{N%}: | %{T%}: | р | с | ш | п ] ; 
@@ -320,7 +330,7 @@ Cx:0 <=> Cx _ ( :0)* %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat, loc, abl, i
 !@ т у {в}:0 >:0 {T}:р {A}:а
 
 "Vowel reduction for high vowels before {в}"
-Vx:Vy <=> _ %{в%}:в %>: [ %{и%}: %{н%}: | %{N%}: %{A%}: ] ; 
+Vx:Vy <=> _ %{в%}:в %>: [ %{и%}: %{н%}: | %{N%}: %{A%}: | н %{A%}: ] ; 
           _ %{в%}:в %{☭%}: %>: %{и%}: %{н%}: ; 
           _ %{в%}:в %>: %{Ă%}: н ;  ! genitive
           _ %{в%}:в %>: %{ă%}: м ;  ! px1sg
@@ -367,6 +377,7 @@ Vx:Vy <=> _ %{в%}:в %>: [ %{и%}: %{н%}: | %{N%}: %{A%}: ] ;
                 _ %>: %{Ă%}: н ; ! genitive
                 _ %>: ш  ; ! ter, ins
                 _ :YotisedVow [ :0 ]* %>:  ;
+                _ :YotisedVow %{в%}: ; ! менювӗ
        except 
                 _ %>: %{U%}:ӳ ; 
                 и _ %>: %{Ĕ%}: ; 
@@ -398,6 +409,7 @@ Vx:ӑ <=> %{й%}: _ (%{в%}: ) %>: %{N%}: %{A%}: ;  ! dative
          %{й%}: _ (%{в%}: ) %>: %{Ă%}:  ;  ! genitive
          %{й%}: _ (%{в%}: ) %>: %{ă%}:  ;  ! px1sg
          %{й%}: _ %{в%}: %>: %{U%}:  ;  ! px2sg
+         %{й%}: _ %{в%}: %>: %{Ĕ%}:  ;  ! px2pl
      where Vx in ( я ю ) ; 
 
 !@ с т и х и {й}:й я:ӑ >:0 {T}:р {A}:а н
@@ -413,6 +425,8 @@ Vx:ӑ <=> %{й%}: _ (%{в%}: ) %>: %{N%}: %{A%}: ;  ! dative
 !@ в л а ҫ >:0 {N}:0 {A}:а
 
 !@ т у х ь {й}: я > {N}:н {A}:а
+
+!@ х ӑ {й}:й ю:ӑ {в}:в >:0 {Ĕ}:ӑ р >:0 с е {м}:м >:0 ш {Ă}:ӗ н
 
 "Possessive {и} does not appear after consonants in dative"
 %{и%}:0 <=> :Cns [ :0 - [ UnderBack: | UnderFront: | Vow:0 ] ]* %>: _ ; 
@@ -475,7 +489,7 @@ Cx:ч <=> [ %{н%}:н | %{м%}:н ]  %>: _ ;
 "{T} after liquids and nasals"
 %{T%}:т <=> [ р | н ] [ ь: | :0 - %{ː%}:0 ]* %>: _ ; 
                               %{U%}: %{н%}:н %>: _ ;
-            л %>: _ ;  
+            л (ь: ) %>: _ ;  
 
 !@ х ӗ в е л >:0 {T}:т {A}:е н
 

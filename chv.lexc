@@ -156,7 +156,7 @@ LEXICON N-ĔŞ
 LEXICON NP-ZOLOTNICKIJ
 
 %<np%>:%{й%}                         SUBST ;
-%<np%>%<nom%>:й                      SUBST "weight: -1.0" ;
+%<np%>%<nom%>:й                      K "weight: -1.0" ;
 
 
 LEXICON Nouns 
