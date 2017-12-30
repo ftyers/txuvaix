@@ -16,8 +16,8 @@ echo "" > $of
 for i in `hfst-fst2strings chv.lexc.hfst | grep -v '<np' | grep "$str"`; do 
 	x=`echo $i | cut -f1 -d':'`; 
 	k=`echo $i | cut -f2 -d':'`; 
-	y=`echo $x | hfst-optimised-lookup -qp chv.gen.hfstol | cut -f2 | grep -v '^$' | tr '\n' '|' | sed 's/|$//g'`
-	z=`cat test/chv.txt | grep "^$x:" | cut -f2 -d':' | tr '\n' '|' | sed 's/|$//g'`;
+	y=`echo $x | hfst-optimised-lookup -qp chv.gen.hfstol | cut -f2 | grep -v '^$' | sort | tr '\n' '|' | sed 's/|$//g'`
+	z=`cat test/chv.txt | grep "^$x:" | cut -f2 -d':' | sort | tr '\n' '|' | sed 's/|$//g'`;
 	r="-"
 	if [[ $y = $z ]]; then
 		r="+"

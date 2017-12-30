@@ -1,5 +1,8 @@
-
-tags=`echo $1 | sed 's/\./></g' | sed 's/^/</g' | sed 's/$/>/g'`;
+tags=$1
+tip=`echo "$tags" | grep '\.' | wc -l`
+if [[ $tip -gt 0 ]]; then
+	tags=`echo $1 | sed 's/\./></g' | sed 's/^/</g' | sed 's/$/>/g'`;
+fi
 total=0
 wgn=0
 wmf=0

@@ -100,6 +100,7 @@ print('Missing analyses:\n');
 
 for w in missing: #{
 	sys.stdout.write('^' + w + '/');
+	missing[w] = list(set(missing[w]))
 	for a in missing[w]: #{
 		sys.stdout.write(a);
 		if a != missing[w][-1]: #{
@@ -113,6 +114,7 @@ print('\nIncorrect analyses:\n');
 
 for w in incorrect: #{
 	sys.stdout.write('^' + w + '/');
+	incorrect[w] = list(set(incorrect[w]))
 	for a in incorrect[w]: #{
 		sys.stdout.write(a);
 		if a != incorrect[w][-1]: #{
