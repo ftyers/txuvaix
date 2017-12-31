@@ -187,8 +187,8 @@ Vx:Vy <=> _ [ :0 - й: ]* %>: %{U%}:  ;
          %{й%}: _ %{в%}: %>: %{U%}:  ;  
                 _ [ :0 ]* %>: %{Ĕ%}: р ;
                 _ %>: %{и%}: ;
-          _ %{й%}: %>: %{U%}: ;
-          _ %{й%}: %>: %{Ĕ%}: ;
+                _ %{й%}: %>: %{U%}: ;
+                _ %{й%}: %>: %{Ĕ%}: ;
       where Vx in ( а э и о я е ы ё %{е%} %{о%} %{а%} ) 
             Vy in ( у ӳ ӳ у ю ӳ у у   ӳ     у     у ) 
       matched ;
@@ -211,7 +211,9 @@ Vx:Vy <=> _ [ :0 ]* %>: %{Ĕ%}: р ;
 "Vowel deletion for possessive"
 Vx:0 <=> :Vow [ :0 ]* %>: _  ;
        except 
-            [ UnderBack: | BackVow ] [ :Cns | :0 ]* й: %>: _ ; 
+         [ UnderBack: | BackVow ] [ :Cns | :0 ]* й:0 %>: [ :Cns | :0 ]*  _ ;
+            [ UnderBack: | BackVow ] [ :Cns | :0 ]* й: %>: _ ;
+                        [ ArchiBack: | UnderBack: | BackVow: ] й: %>: _ ;
                                               и %{й%}: %>: _ ; 
        where Vx in ( %{Ĕ%} %{U%} %{ă%} ) ;
 
@@ -272,11 +274,15 @@ Vx:0 <=> _ %>: %{и%}: ; ! possessive
          _ %>: %{Ă%}: ; ! genitive
          _ %>: %{ă%}: ; ! poss. 1sg
          _ %>: %{Ĕ%}: ;  ! px2pl
+      except
+         _ [ :0 - й: ]* %>: %{U%}: ; 
       where Vx in ( %{а%} %{о%} %{е%} )  ;
 
 "Stem vowel reduction before suffix"
 Vx:Vy <=> _ %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat,loc,abl,ins,ter
           _ %>: с ;  ! plural
+      except 
+          _ [ :0 - й: ]* %>: %{U%}: ; ! px2sg
       where Vx in ( %{а%} %{о%} %{е%} ) 
             Vy in (   ӑ     ӑ     ӗ )
       matched ;
@@ -301,6 +307,7 @@ Cx:0 <=> Cx _ [ :0 ]* %>: [ %{N%}: | %{T%}: | р | п | ш ] ; ! dat, loc, abl, 
 !                 Cx  _ (ь: ) [ :0 ]* %>: %{и%}: ; ! palatalisation
             _ %>: [ %{U%}:ю | %{A%}:я ] ;
 !            _ [ :0 - %{ː%}: ]* %>: %{N%}: ; ! dative
+            _ [ :0 - %{ː%}: ]* %>: %{N%}:  ; 
       where Cx in Cns  ;
 
 !@ к л а с с:0 >:0 {N}:0 {A}:а
