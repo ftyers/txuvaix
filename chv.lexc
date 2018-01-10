@@ -6,6 +6,8 @@ Multichar_Symbols
 %<ins%>              ! Творительный падеж
 
 %{A%}                ! Архифонема [а] или [е]
+%{Ă%}
+%{м%}
 
 %>                   ! Граница морфемы
 
@@ -16,11 +18,12 @@ Nouns ;
 LEXICON CASES 
 
 %<ins%>:%>п%{A%} # ;
+%<gen%>:%>%{Ă%}н # ;
 
 LEXICON PLURAL
 
              CASES ;
-%<pl%>:%>сем CASES ;
+%<pl%>:%>се%{м%} CASES ;
 
 LEXICON N
 
