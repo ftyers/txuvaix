@@ -33,8 +33,10 @@ $ bash test.sh
 dc gen 10 19:00:18 CET 2018	100.0	0.06169983032546661	0.12332357021735779	14
 ```
 
-The final output is:
+The output is means:
 
 ```
 DATE                            P       R                       F-score                 Lines
 ```
+
+The final score is calculated by divising F-score by lines of code. 
