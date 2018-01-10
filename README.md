@@ -31,11 +31,17 @@
 ** The word "атте" *father*
 ** Irregular possessive forms
 
-* `N-ANNE`: 
+* `N-ATTEANNE`: 
 ** The word "атте-анне" *parents*
 ** Irregular possessive forms
 
 ## Archiphonemes 
+
+## "Diacritics" 
+
+* {ь} -- force front harmony
+* {ъ} -- force back harmony
+* {☭} -- loanword phonology
 
 ### 3rd person possessive 
 
@@ -62,3 +68,29 @@ Epenthetic {н} does not appear after 2nd person possessive
 -	анне<n><px2sg><loc>	анн{ь}>{U}{н}>{T}{A}	аннӳре	!= аннӳнте	
 -	анне<n><px2sg><abl>	анн{ь}>{U}{н}>{T}{A}н	аннӳрен	!= аннӳнтен
 ```
+
+Final unstressed vowels in Russian loanwords should probably be dealt 
+with via a special symbol instead of by a separate archiphoneme for each
+vowel.
+
+The reason why it has been done with a separate archiphoneme so far is 
+for vowel harmony purposes. Deleted surface vowels do not effect vowel
+harmony rules, but in the case of these kinds they should, e.g. 
+
+```
+-	министерство<n><gen>	министерство{↓}>{Ă}н	министерствӑн	министерствӗн
+
+```
+
+If the surface о /ă/ is deleted then the ord gets front harmony from the stressed /e/.
+
+One possibility is to mark the Russian loans with the `{☭}` and with a symbol
+for stressed (or unstressed) vowel and then have the phonology treat these 
+differently. e.g. either:
+
+* `министерство{↓}{☭}>{Ă}н`, `пальто{☭}>{Ă}н`, or:
+* `министерство{☭}>{Ă}н`, `пальто%{'%}{☭}>{Ă}н`
+
+
+
+
