@@ -39,4 +39,4 @@ The output is means:
 DATE                            P       R                       F-score                 Lines
 ```
 
-The final score is calculated by divising F-score by lines of code. 
+The final score is calculated by dividing F-score by lines of code. 
