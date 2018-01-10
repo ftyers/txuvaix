@@ -1,13 +1,9 @@
+#!/bin/bash
+
 total=0
 win=0
 str=$1
 of=/tmp/chv.out
-#for j in `python3 test/extract-phon.py < chv.twol | sed 's/ /_/g'`; do 
-#	echo "================================================="
-#	echo $j | sed 's/_/ /g' 
-#	echo "================================================="
-#	echo $j | sed 's/_/ /g' | hfst-pair-test chv.twol.hfst
-#done
 
 cat test/chv.txt  | cut -f2 -d':' | hfst-proc chv.mor.hfstol > test/chv.tst
 for i in `cat test/chv.txt  | cut -f2 -d':'`; do 
@@ -41,3 +37,5 @@ for i in `cat $of  | grep -P -o '(<[^>\t]+>)+' | sort -u`; do
 	per=`echo "$win/($win+$fail)*100" | bc -l | head -c 5`; 
 	echo -e "$per\t$win\t$fail\t$i"; 
 done | sort -gr > /tmp/chv.par
+
+wc -l /tmp/chv.par /tmp/chv.out
