@@ -4,6 +4,7 @@ total=0
 win=0
 str=$1
 of=/tmp/chv.out
+lines=`cat chv.lexc chv.twol | grep -v '^$' | grep -v '^!' | tr -d '[\n ]' | wc -c | sed 's/$/\/80/g' | bc`
 
 cat test/chv.txt  | cut -f2 -d':' | hfst-proc chv.mor.hfstol > test/chv.tst
 for i in `cat test/chv.txt  | cut -f2 -d':'`; do 
@@ -13,7 +14,7 @@ done > test/chv.ref
 d=`date`
 echo -ne "$d\t" >> test/history.log
 python3 test/evaluate-morph.py test/chv.tst test/chv.ref > test/chv.res 2>> test/history.log
-tail -4 test/history.log >/dev/stderr
+tail -4 test/history.log | sed "s/$/\t$lines/g" >/dev/stderr
 
 #echo "" > $of
 #for i in `hfst-fst2strings chv.lexc.hfst | grep -v '<np' | grep "$str"`; do 
