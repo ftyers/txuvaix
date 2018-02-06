@@ -1,12 +1,12 @@
 <d>
     <e>
         <l lang="chv"><w cat="adj">йывар</w><ex>Чӑваш чӗлхи йывар-и?</ex>
-            <tr>jɯvɑɾ</tr>
+            <tr>jɯʋɑɾ</tr>
             <clar>[not easy]</clar>
         </l>
         <l lang="eng"><w cat="adj">hard</w><ex>Is Chuvash hard?</ex>
             <mi val="comp">harder</mi>
-            <tr s="jnw">ˈhɒɻd</tr><tr s="fmt">ˈhɑːd</tr>
+            <tr s="jnw">hɒɻd</tr><tr s="fmt">hɑːd</tr>
             <clar>difficult</clar><clar>not easy</clar>
         </l>
         <l lang="eng"><w cat="adj">difficult</w><ex>Is Chuvash difficult?</ex>
@@ -17,16 +17,26 @@
         </l>
         <l lang="kir"><w cat="adj">оор</w><ex>Чуваш тили оорбу?</ex>
             <tr>oːɾ</tr>
+            <clar lang="kir">кыйын</clar><clar lang="kir">катуу</clar><clar lang="eng">requiring effort</clar>
+        </l>
+        <l lang="kir"><w cat="adj">кыйын</w><ex>Чуваш тили кыйынбы?</ex>
+            <tr>qʰɯjɯn</tr>
+            <clar lang="kir">оор</clar><clar lang="kir">кыйын</clar><clar lang="eng">difficult to understand</clar>
+        </l>
+        <l lang="kir"><w cat="adj">кыйын</w><ex>Чуваш тили катуубу?</ex>
+            <tr>qʰɑtʰuː</tr>
+            <clar lang="kir">оор</clar><clar lang="kir">кыйын</clar><clar lang="eng">requiring labourious effort</clar>
         </l>
     </e>
     <e>
         <l lang="chv"><w cat="adj">йывар</w><ex> </ex>
-            <tr>jɯvɑɾ</tr>
+            <tr>jɯʋɑɾ</tr>
         </l>
         <l lang="eng"><w cat="adj">heavy</w><ex> </ex>
         </l>
         <l lang="kir"><w cat="adj">оор</w><ex> </ex>
             <tr>oːɾ</tr>
+            <clar>салмагы</clar>
         </l>
     </e>
     <e>
