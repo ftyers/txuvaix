@@ -1,0 +1,46 @@
+<d>
+    <e>
+        <l lang="chv"><w cat="adj">йывар</w><ex>Чӑваш чӗлхи йывар-и?</ex>
+            <tr>jɯvɑɾ</tr>
+            <clar>[not easy]</clar>
+        </l>
+        <l lang="eng"><w cat="adj">hard</w><ex>Is Chuvash hard?</ex>
+            <mi val="comp">harder</mi>
+            <tr s="jnw">ˈhɒɻd</tr><tr s="fmt">ˈhɑːd</tr>
+            <clar>difficult</clar><clar>not easy</clar>
+        </l>
+        <l lang="eng"><w cat="adj">difficult</w><ex>Is Chuvash difficult?</ex>
+            <tr s="jnw">ˈdɪfəkəɫʔ</tr><tr s="fmt">ˈdɪfɪkəʟʔ</tr>
+        </l>
+        <l lang="cat"><w cat="adj">difícil</w><ex>El txuvaix, és difícil?</ex>
+            <tr>diˈfi.sil</tr>
+        </l>
+    </e>
+    <e>
+        <l lang="chv"><w cat="adj">йывар</w><ex> </ex>
+            <tr>jɯvɑɾ</tr>
+        </l>
+        <l lang="eng"><w cat="adj">heavy</w><ex> </ex>
+        </l>
+    </e>
+    <e>
+        <l lang="chv"><w cat="vi">пул</w><ex> </ex>
+            <tr>pul</tr>
+        </l>
+        <l lang="eng"><w cat="vi">be</w><ex> </ex>
+            <mi val="irreg"/>
+            <tr>bi</tr>
+        </l>
+    </e>
+    
+    <e>
+        <l lang="chv"><w cat="vi">кур</w><ex> </ex>
+            <tr>kul</tr>
+        </l>
+        <l lang="eng"><w cat="vi">see</w><ex> </ex>
+            <mi val="past" tr="sɒ">saw</mi>
+            <mi val="pp" tr="sin">seen</mi>
+            <tr>si</tr>
+        </l>
+    </e>
+</d>
