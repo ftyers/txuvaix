@@ -59,4 +59,16 @@
             <tr>si</tr>
         </l>
     </e>
+    <e>
+        <l lang="chv"><w cat="n">така</w><ex> </ex>
+            <tr>taɣa</tr>
+        </l>
+        <l lang="eng"><w cat="vi">sheep</w><ex> </ex>
+            <mi val="pl">sheep</mi>
+            <tr>ʃip</tr>
+        </l>
+        <l lang="kir"><w cat="n">кой</w><ex> </ex>
+            <tr>qʰoj</tr>
+        </l>
+    </e>
 </d>
