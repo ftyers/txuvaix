@@ -2,7 +2,7 @@
     <e>
         <l lang="chv"><w form="йывар" cat="adj">
             <ph><tr>jɯʋɑɾ</tr></ph>
-            <clar>[not easy]</clar>
+            <clar><cl>[not easy]</cl></clar>
             <mi><par n="A"/></mi></w>
             <ex><x id="1" tid="UD_Chuvash:examples:1">Чӑваш чӗлхи йывар-и?</x></ex>
         </l>
@@ -13,7 +13,7 @@
             <!-- what's important to note here is that phonologically the comparative
                 is reasonably different from "long/longer" [lɒŋ/lɒŋgɻ] -->
             <ph><tr s="jnw">hɒɻd</tr><tr s="fmt">hɑːd</tr></ph>
-            <clar>difficult</clar><clar>not easy</clar></w>
+            <clar><cl>difficult</cl><cl>not easy</cl></clar></w>
             <ex><x id="1">Is Chuvash difficult?</x></ex>
         </l>
         <l lang="eng"><w cat="adj">difficult</w><ex>Is Chuvash difficult?</ex>
@@ -25,19 +25,22 @@
         </l>
         <l lang="kir"><w form="оор" cat="adj">
             <ph><tr>oːɾ</tr></ph>
-            <clar lang="kir">кыйын</clar><clar lang="kir">катуу</clar><clar lang="eng">requiring effort</clar>
+            <clar lang="kir"><cl>кыйын</cl><cl>катуу</cl></clar>
+            <clar lang="eng"><cl>requiring effort</cl></clar>
             </w>
             <ex><x id="1">Чуваш тили оорбу?</x></ex>
         </l>
         <l lang="kir"><w form="кыйын" cat="adj">
             <ph><tr>qʰɯjɯn</tr></ph>
-            <clar lang="kir">оор</clar><clar lang="kir">катуу</clar><clar lang="eng">difficult to understand</clar>
+            <clar lang="kir"><cl>оор</cl><clar><cl>катуу</cl></clar>
+            <clar lang="eng"><cl>difficult to understand</cl></clar>
             </w>
             <ex><x id="1">Чуваш тили кыйынбы?</x></ex>
         </l>
         <l lang="kir"><w form="катуу" cat="adj">
             <ph><tr>qʰɑtʰuː</tr></ph>
-            <clar lang="kir">оор</clar><clar lang="kir">кыйын</clar><clar lang="eng">requiring labourious effort</clar>
+            <clar lang="kir"><cl>оор</cl><cl>кыйын</cl></clar>
+            <clar lang="eng"><cl>requiring labourious effort</cl></clar>
             </w>
             <ex><x id="1">Чуваш тили катуубу?</x></ex>
         </l>
@@ -50,7 +53,7 @@
         </l>
         <l lang="kir"><w cat="adj">оор</w><ex> </ex>
             <ph><tr>oːɾ</tr></ph>
-            <clar>салмагы</clar>
+            <clar><cl>салмагы</cl></clar>
         </l>
     </e>
     <e>
