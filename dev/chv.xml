@@ -85,6 +85,20 @@
             <tr>qʰoj</tr>
         </l>
     </e>
+  <e>
+    <l lang="chv"><w form="хӗр" cat="n">
+      <mi><par n="N-ĔŞ"/></mi></w>
+      <ex><x id="1" tid="UD_Chuvash:17454:1:0">Сцена ҫинче ултӑ хӗр тухнӑ.</x></ex>
+    </l>
+    <l lang="eng"><w form="girl" cat="n">
+      <mi><par n="house__n"/></mi></w>
+      <ex><x id="1">Six girls came onto the stage.</x></ex>
+    </l>
+    <l lang="tur"><w form="kız" cat="n">
+      <mi><par n="N1"/></mi></w>
+      <ex><x id="1">Sahneye altı kız çıktı.</x></ex>
+    </l>
+  </e>
 </d>
 
 <!--
