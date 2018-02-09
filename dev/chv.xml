@@ -1,31 +1,45 @@
 <d>
     <e>
-        <l lang="chv"><w cat="adj">йывар</w><ex>Чӑваш чӗлхи йывар-и?</ex>
+        <l lang="chv"><w form="йывар" cat="adj">
             <ph><tr>jɯʋɑɾ</tr></ph>
             <clar>[not easy]</clar>
+            <mi><par n="A"/></mi></w>
+            <ex><x id="1" tid="UD_Chuvash:examples:1">Чӑваш чӗлхи йывар-и?</x></ex>
         </l>
-        <l lang="eng"><w cat="adj">hard</w><ex>Is Chuvash hard?</ex>
-            <mi val="comp">harder</mi>
-            <tr s="jnw">hɒɻd</tr><tr s="fmt">hɑːd</tr>
-            <clar>difficult</clar><clar>not easy</clar>
+        <l lang="eng"><w form="hard" cat="adj">
+            <!-- mi val="comp">harder</mi -->
+            <!-- mi><par n="long/__adj"/></mi -->
+            <!-- mi><f val="comp"><tr s="jnw">ˈhɒɻɾɻ̩</tr></mi -->
+            <!-- what's important to note here is that phonologically the comparative
+                is reasonably different from "long/longer" [lɒŋ/lɒŋgɻ] -->
+            <ph><tr s="jnw">hɒɻd</tr><tr s="fmt">hɑːd</tr></ph>
+            <clar>difficult</clar><clar>not easy</clar></w>
+            <ex><x id="1">Is Chuvash difficult?</x></ex>
         </l>
         <l lang="eng"><w cat="adj">difficult</w><ex>Is Chuvash difficult?</ex>
             <ph><tr s="jnw">ˈdɪfəkəɫʔ</tr><tr s="fmt">ˈdɪfɪkəʟʔ</tr></ph>
         </l>
-        <l lang="cat"><w cat="adj">difícil</w><ex>El txuvaix, és difícil?</ex>
-            <ph><tr>diˈfi.sil</tr></ph>
+        <l lang="cat"><w form="difícil cat="adj">
+            <ex><x id="1">El txuvaix, és difícil?</x></ex>
+            <ph><tr>diˈfi.sil</tr></ph></w>
         </l>
-        <l lang="kir"><w cat="adj">оор</w><ex>Чуваш тили оорбу?</ex>
+        <l lang="kir"><w form="оор" cat="adj">
             <ph><tr>oːɾ</tr></ph>
             <clar lang="kir">кыйын</clar><clar lang="kir">катуу</clar><clar lang="eng">requiring effort</clar>
+            </w>
+            <ex><x id="1">Чуваш тили оорбу?</x></ex>
         </l>
-        <l lang="kir"><w cat="adj">кыйын</w><ex>Чуваш тили кыйынбы?</ex>
+        <l lang="kir"><w form="кыйын" cat="adj">
             <ph><tr>qʰɯjɯn</tr></ph>
             <clar lang="kir">оор</clar><clar lang="kir">катуу</clar><clar lang="eng">difficult to understand</clar>
+            </w>
+            <ex><x id="1">Чуваш тили кыйынбы?</x></ex>
         </l>
-        <l lang="kir"><w cat="adj">кыйын</w><ex>Чуваш тили катуубу?</ex>
+        <l lang="kir"><w form="катуу" cat="adj">
             <ph><tr>qʰɑtʰuː</tr></ph>
             <clar lang="kir">оор</clar><clar lang="kir">кыйын</clar><clar lang="eng">requiring labourious effort</clar>
+            </w>
+            <ex><x id="1">Чуваш тили катуубу?</x></ex>
         </l>
     </e>
     <e>
