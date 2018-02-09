@@ -86,3 +86,15 @@
         </l>
     </e>
 </d>
+
+<!--
+TEMPLATE:
+  <e>
+    <l lang="chv"><w form="" cat=""></w>
+      <ex><x id="1"></x></ex>
+    </l> 
+    <l lang="eng"><w form="" cat=""></w>
+      <ex><x id="1"></x></ex>
+    </l>
+  </e>
+-->
