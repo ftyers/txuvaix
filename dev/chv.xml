@@ -1,7 +1,7 @@
 <d>
     <e>
         <l lang="chv"><w cat="adj">йывар</w><ex>Чӑваш чӗлхи йывар-и?</ex>
-            <tr>jɯʋɑɾ</tr>
+            <ph><tr>jɯʋɑɾ</tr></ph>
             <clar>[not easy]</clar>
         </l>
         <l lang="eng"><w cat="adj">hard</w><ex>Is Chuvash hard?</ex>
@@ -10,42 +10,42 @@
             <clar>difficult</clar><clar>not easy</clar>
         </l>
         <l lang="eng"><w cat="adj">difficult</w><ex>Is Chuvash difficult?</ex>
-            <tr s="jnw">ˈdɪfəkəɫʔ</tr><tr s="fmt">ˈdɪfɪkəʟʔ</tr>
+            <ph><tr s="jnw">ˈdɪfəkəɫʔ</tr><tr s="fmt">ˈdɪfɪkəʟʔ</tr></ph>
         </l>
         <l lang="cat"><w cat="adj">difícil</w><ex>El txuvaix, és difícil?</ex>
-            <tr>diˈfi.sil</tr>
+            <ph><tr>diˈfi.sil</tr></ph>
         </l>
         <l lang="kir"><w cat="adj">оор</w><ex>Чуваш тили оорбу?</ex>
-            <tr>oːɾ</tr>
+            <ph><tr>oːɾ</tr></ph>
             <clar lang="kir">кыйын</clar><clar lang="kir">катуу</clar><clar lang="eng">requiring effort</clar>
         </l>
         <l lang="kir"><w cat="adj">кыйын</w><ex>Чуваш тили кыйынбы?</ex>
-            <tr>qʰɯjɯn</tr>
+            <ph><tr>qʰɯjɯn</tr></ph>
             <clar lang="kir">оор</clar><clar lang="kir">катуу</clar><clar lang="eng">difficult to understand</clar>
         </l>
         <l lang="kir"><w cat="adj">кыйын</w><ex>Чуваш тили катуубу?</ex>
-            <tr>qʰɑtʰuː</tr>
+            <ph><tr>qʰɑtʰuː</tr></ph>
             <clar lang="kir">оор</clar><clar lang="kir">кыйын</clar><clar lang="eng">requiring labourious effort</clar>
         </l>
     </e>
     <e>
         <l lang="chv"><w cat="adj">йывар</w><ex> </ex>
-            <tr>jɯʋɑɾ</tr>
+            <ph><tr>jɯʋɑɾ</tr></ph>
         </l>
         <l lang="eng"><w cat="adj">heavy</w><ex> </ex>
         </l>
         <l lang="kir"><w cat="adj">оор</w><ex> </ex>
-            <tr>oːɾ</tr>
+            <ph><tr>oːɾ</tr></ph>
             <clar>салмагы</clar>
         </l>
     </e>
     <e>
         <l lang="chv"><w cat="vi">пул</w><ex> </ex>
-            <tr>pul</tr>
+            <ph><tr>pul</tr></ph>
         </l>
         <l lang="eng"><w cat="vi">be</w><ex> </ex>
             <mi val="irreg"/>
-            <tr>bi</tr>
+            <ph><tr>bi</tr></ph>
         </l>
     </e>
     
