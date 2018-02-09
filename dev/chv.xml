@@ -24,29 +24,25 @@
             <ph><tr>diˈfi.sil</tr></ph></w>
         </l>
         <l lang="kir"><w form="оор" cat="adj">
-            <ph><tr>oːɾ</tr></ph>
-            <clar>
-                <cl lang="kir">кыйын</cl><cl lang="kir">катуу</cl>
-                <cl lang="eng">requiring effort</cl>
-            </clar>
+                <ph><tr>oːɾ</tr></ph>
+                <clar>
+                    <cl lang="kir">кыйын</cl><cl lang="kir">катуу</cl>
+                    <cl lang="eng">requiring effort</cl>
+                </clar>
+                <ex><x id="1">Чуваш тили оорбу?</x></ex>
+            </w><w form="кыйын" cat="adj">
+                <ph><tr>qʰɯjɯn</tr></ph>
+                <clar>
+                    <cl lang="kir">оор</cl><clar><cl>катуу</cl>
+                    <cl lang="eng">difficult to understand</cl>
+                </clar>
+                <ex><x id="1">Чуваш тили кыйынбы?</x></ex>
+            </w><w form="катуу" cat="adj">
+                <ph><tr>qʰɑtʰuː</tr></ph>
+                <clar lang="kir"><cl>оор</cl><cl>кыйын</cl></clar>
+                <clar lang="eng"><cl>requiring labourious effort</cl></clar>
+                <ex><x id="1">Чуваш тили катуубу?</x></ex>
             </w>
-            <ex><x id="1">Чуваш тили оорбу?</x></ex>
-        </l>
-        <l lang="kir"><w form="кыйын" cat="adj">
-            <ph><tr>qʰɯjɯn</tr></ph>
-            <clar>
-                <cl lang="kir">оор</cl><clar><cl>катуу</cl>
-                <cl lang="eng">difficult to understand</cl>
-            </clar>
-            </w>
-            <ex><x id="1">Чуваш тили кыйынбы?</x></ex>
-        </l>
-        <l lang="kir"><w form="катуу" cat="adj">
-            <ph><tr>qʰɑtʰuː</tr></ph>
-            <clar lang="kir"><cl>оор</cl><cl>кыйын</cl></clar>
-            <clar lang="eng"><cl>requiring labourious effort</cl></clar>
-            </w>
-            <ex><x id="1">Чуваш тили катуубу?</x></ex>
         </l>
     </e>
     <e>
