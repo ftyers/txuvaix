@@ -34,8 +34,10 @@
         </l>
         <l lang="kir"><w form="кыйын" cat="adj">
             <ph><tr>qʰɯjɯn</tr></ph>
-            <clar lang="kir"><cl>оор</cl><clar><cl>катуу</cl></clar>
-            <clar lang="eng"><cl>difficult to understand</cl></clar>
+            <clar>
+                <cl lang="kir">оор</cl><clar><cl>катуу</cl>
+                <cl lang="eng">difficult to understand</cl>
+            </clar>
             </w>
             <ex><x id="1">Чуваш тили кыйынбы?</x></ex>
         </l>
