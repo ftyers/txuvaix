@@ -25,8 +25,9 @@
         </l>
         <l lang="kir"><w form="оор" cat="adj">
             <ph><tr>oːɾ</tr></ph>
-            <clar lang="kir"><cl>кыйын</cl><cl>катуу</cl></clar>
-            <clar lang="eng"><cl>requiring effort</cl></clar>
+            <clar>
+                <cl lang="kir">кыйын</cl><cl lang="kir">катуу</cl><cl lang="eng">requiring effort</cl>
+            </clar>
             </w>
             <ex><x id="1">Чуваш тили оорбу?</x></ex>
         </l>
