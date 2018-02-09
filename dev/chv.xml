@@ -62,15 +62,17 @@
             <ph><tr>bi</tr></ph>
         </l>
     </e>
-    
     <e>
-        <l lang="chv"><w cat="vi">кур</w><ex> </ex>
-            <tr>kul</tr>
+        <l lang="chv"><w form="кур" cat="vi">
+            <ex><x id="1">Унта паллӑ ҫӑлтӑрсене курма май пур.</x></ex>
+            <tr>kuɾ</tr>
         </l>
-        <l lang="eng"><w cat="vi">see</w><ex> </ex>
+        <l lang="eng"><w form="see" cat="vi">
+            <ph><tr>si</tr></ph>
+            <!-- mi><par n="s/ee__vblex"/></mi>
             <mi val="past" tr="sɒ">saw</mi>
-            <mi val="pp" tr="sin">seen</mi>
-            <tr>si</tr>
+            <mi val="pp" tr="sin">seen</mi -->
+            <ex><x id="1">There is an option to see famous stars here.</x></ex>
         </l>
     </e>
     <e>
@@ -85,20 +87,20 @@
             <tr>qʰoj</tr>
         </l>
     </e>
-  <e>
-    <l lang="chv"><w form="хӗр" cat="n">
-      <mi><par n="N-ĔŞ"/></mi></w>
-      <ex><x id="1" tid="UD_Chuvash:17454:1:0">Сцена ҫинче ултӑ хӗр тухнӑ.</x></ex>
-    </l>
-    <l lang="eng"><w form="girl" cat="n">
-      <mi><par n="house__n"/></mi></w>
-      <ex><x id="1">Six girls came onto the stage.</x></ex>
-    </l>
-    <l lang="tur"><w form="kız" cat="n">
-      <mi><par n="N1"/></mi></w>
-      <ex><x id="1">Sahneye altı kız çıktı.</x></ex>
-    </l>
-  </e>
+    <e>
+        <l lang="chv"><w form="хӗр" cat="n">
+            <mi><par n="N-ĔŞ"/></mi></w>
+            <ex><x id="1" tid="UD_Chuvash:17454:1:0">Сцена ҫинче ултӑ хӗр тухнӑ.</x></ex>
+        </l>
+        <l lang="eng"><w form="girl" cat="n">
+            <mi><par n="house__n"/></mi></w>
+            <ex><x id="1">Six girls came onto the stage.</x></ex>
+        </l>
+        <l lang="tur"><w form="kız" cat="n">
+            <mi><par n="N1"/></mi></w>
+            <ex><x id="1">Sahneye altı kız çıktı.</x></ex>
+        </l>
+    </e>
 </d>
 
 <!--
